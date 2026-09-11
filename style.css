@@ -1,0 +1,307 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+    user-select: none;
+}
+
+body {
+    display: none;
+    background: transparent !important;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* إلغاء الغواش والسواد الخلفي تماماً */
+#armory-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+
+/* مقاس متناسق ومرن 4:3 يتجاوب تلقائياً مع جميع الشاشات */
+#armory-container {
+    width: min(880px, 92vw);
+    max-height: min(660px, 88vh);
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(180deg, #0a0e17 0%, #03050a 100%);
+    border: 2px solid #bd1616;
+    box-shadow: 0 0 35px rgba(189, 22, 22, 0.35), inset 0 0 15px rgba(0, 0, 0, 0.9);
+    border-radius: 14px;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* الهيدر الأحمر الفخم */
+.minister-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(189, 22, 22, 0.25);
+    padding-bottom: 12px;
+    flex-shrink: 0;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.minister-logo {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 0 12px rgba(189, 22, 22, 0.4));
+}
+
+.header-titles h1 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 900;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+.header-titles p {
+    color: #b3c1d1;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.close-top-btn {
+    background: rgba(189, 22, 22, 0.1);
+    border: 1px solid rgba(189, 22, 22, 0.4);
+    color: #bd1616;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.close-top-btn:hover {
+    background: #bd1616;
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(189, 22, 22, 0.6);
+}
+
+/* شبكة الأيتمات العمودية (4 عناصر بالصف) والسكرول المتناسق */
+.vertical-scroll-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.vertical-scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.vertical-scroll-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.vertical-scroll-container::-webkit-scrollbar-thumb {
+    background: #bd1616;
+    border-radius: 10px;
+}
+
+.vertical-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #e61c1c;
+}
+
+.minister-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+/* تصميم الكروت باللون الأحمر الداكن */
+.minister-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(189, 22, 22, 0.2);
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.minister-card:hover {
+    border-color: #bd1616;
+    background: rgba(189, 22, 22, 0.05);
+    transform: translateY(-2px);
+}
+
+.item-title {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.img-container {
+    width: 75px;
+    height: 75px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.img-container img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+/* عرض كمية العهدة المتبقية */
+.item-stock {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.item-stock span {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+/* أزرار الزيادة والنقصان (+) و (-) */
+.minister-qty {
+    display: flex;
+    align-items: center;
+    background: #000000;
+    border: 1px solid rgba(189, 22, 22, 0.3);
+    border-radius: 6px;
+    width: 100%;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.m-qty-btn {
+    background: transparent;
+    border: none;
+    color: #bd1616;
+    font-size: 15px;
+    font-weight: 900;
+    width: 32px;
+    height: 30px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.m-qty-btn:hover {
+    background: rgba(189, 22, 22, 0.25);
+    color: #ffffff;
+}
+
+.m-qty-val {
+    width: 40px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.buy-btn-minister {
+    width: 100%;
+    background: linear-gradient(135deg, #bd1616 0%, #780e0e 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 12px;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: filter 0.2s;
+    text-shadow: 0 1px 2px #000;
+}
+
+.buy-btn-minister:hover {
+    filter: brightness(1.25);
+}
+
+.buy-btn-minister:disabled {
+    background: #1e293b;
+    color: #64748b;
+    cursor: not-allowed;
+    filter: none;
+}
+
+/* الفوتر ومؤقت الـ 24 ساعة العسكري */
+.minister-footer {
+    border-top: 1px solid rgba(189, 22, 22, 0.2);
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.timer-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.timer-section i {
+    color: #ef4444;
+}
+
+#countdown-timer {
+    background: rgba(220, 38, 38, 0.12);
+    border: 1px solid rgba(220, 38, 38, 0.35);
+    color: #ef4444;
+    font-family: monospace;
+    font-size: 14px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.close-panel-btn {
+    background: rgba(255, 255, 255, 0.03);
+    color: #94a3b8;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.close-panel-btn:hover {
+    background: #bd1616;
+    color: #ffffff;
+    border-color: #bd1616;
+}
+
+.esc {
+    background: #000000;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 10px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عهدة وزارة الداخلية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="armory-wrapper">
+        <div id="armory-container">
+            
+            <!-- هيدر وزارة الداخلية الفخم (الأحمر) -->
+            <div class="minister-header">
+                <div class="header-right">
+                    <img src="logo.png" alt="وزارة الداخلية" class="minister-logo">
+                    <div class="header-titles">
+                        <h1>عهدة وزارة الداخلية</h1>
+                        <p>القيادة العليا - منظومة التجهيز والعهدة اليومية</p>
+                    </div>
+                </div>
+                <button id="close-btn" class="close-top-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- شبكة الأيتمات العمودية (4 أعمدة) -->
+            <div class="vertical-scroll-container">
+                <div class="minister-grid" id="item-list">
+                    <!-- Dynamic Items -->
+                </div>
+            </div>
+
+            <!-- الفوتر وبه مؤقت 24 ساعة العسكري -->
+            <div class="minister-footer">
+                <div class="timer-section">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>إعادة تعبئة العهدة خلال:</span>
+                    <span id="countdown-timer">24:00:00</span>
+                </div>
+                <button onclick="closeMenu()" class="close-panel-btn">إغلاق المنظومة <span class="esc">ESC</span></button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
